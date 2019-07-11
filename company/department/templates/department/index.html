@@ -1,0 +1,40 @@
+
+{% extends 'department/base.html' %}
+
+ {% block body %}
+
+{% if dep_list %}
+    <div class="container">
+      <h2>Display Dipartment</h2>
+
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Department Name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Action</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                   {% for list in dep_list %}
+                      <tr>
+                          <td>{{list.id}}</td>
+                          <td>{{list.dept_name}}</td>
+                           <td>{{list.first_name}}</td>
+                           <td>{{list.last_name}}</td>
+                          <td><a href="{% url 'department:edit' list.id %}">Edit</a>/<a href="{% url 'department:deletes' list.id %}">Delete</a></td>
+                </tr></td>
+                      </tr>
+                   {% endfor %}
+                </tbody>
+            </table>
+
+    </div>
+{% else %}
+    <h2>No Record Found</h2>
+{% endif %}
+
+{%endblock%}

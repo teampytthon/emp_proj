@@ -1,0 +1,21 @@
+{% extends 'department/base.html' %}
+
+ {% block body %}
+
+<div>
+    <form method="post">
+          {% csrf_token %}
+        <div>
+            <label>Department Name</label> {{form.dept_name}}
+        </div>
+        <div>
+            <button type="submit">submit</button>
+        </div>
+    </form>
+
+</div>
+
+
+
+
+{% endblock %}
